@@ -19,7 +19,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 // Add the route handlers here:
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { activeHome: true });
 });
 
 app.get('/:pathName', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/:pathName', (req, res) => {
         .getBeers()
         .then(beersFromApi => {
           console.log('Beers from the database: ', beersFromApi);
-          res.render('beers', { beersFromApi });
+          res.render('beers', { beersFromApi, activeBeers: true });
         })
         .catch(error => console.log(error));
       break;
@@ -39,7 +39,10 @@ app.get('/:pathName', (req, res) => {
         .getRandom()
         .then(responseFromAPI => {
           console.log('Beer from database:', responseFromAPI);
-          res.render('random-beer', responseFromAPI[0]);
+          res.render('random-beer', {
+            randomBeer: responseFromAPI[0],
+            activeRandomBeers: true
+          });
         })
         .catch(error => console.log(error));
       break;
