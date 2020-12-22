@@ -1,13 +1,40 @@
-<h1>Random Beer</h1>
-<article>
+<article class="ib-product-detail">
     {{#with randomBeer}}
-    {{>beer}}
-    <h3>Food pairing</h3>
-    <ul>
-    {{#each food_pairing}}
-        <li><p>{{ this }}</p></li>
-    {{/each}}
-    </ul>
-    <p>{{ brewers_tips }}</p>
+    <img class="ib-product-detail__image" src="{{ image_url }}" alt="{{name}}" height="300px">
+    <div>
+        <h2 class="ib-product-detail__name">
+            {{ name }}
+        </h2>
+        <p class="ib-product-detail__tagline ib-product-tagline">
+            {{ tagline }}
+        </p>
+        <p class="ib-product-detail__description">
+            {{ description }}
+        </p>
+        
+        <section class="ib-product-detail__foods">
+            <h3>
+                Food pairing
+            </h3>
+            <ul>
+            {{#each food_pairing}}
+                <li>
+                    <p>
+                        {{ this }}
+                    </p>
+                </li>
+            {{/each}}
+            </ul>
+        </section>
+
+        <section class="ib-product-detail__tips ib-product-detail-tips">
+            <h3 class="ib-product-detail-tips__headline">
+                Brewer's Tips:
+            </h3>
+            <p class="ib-product-detail-tips__text">
+                {{ brewers_tips }}
+            </p>
+        </section>
+    </div>
     {{/with}}
 </article>

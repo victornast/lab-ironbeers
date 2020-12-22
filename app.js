@@ -19,7 +19,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 // Add the route handlers here:
 
 app.get('/', (req, res) => {
-  res.render('index', { activeHome: true });
+  res.render('index', { activeHome: true, pageTitle: 'Home' });
 });
 
 app.get('/:pathName', (req, res) => {
@@ -30,7 +30,11 @@ app.get('/:pathName', (req, res) => {
         .getBeers()
         .then(beersFromApi => {
           console.log('Beers from the database: ', beersFromApi);
-          res.render('beers', { beersFromApi, activeBeers: true });
+          res.render('beers', {
+            beersFromApi,
+            activeBeers: true,
+            pageTitle: 'Beer Catalog'
+          });
         })
         .catch(error => console.log(error));
       break;
@@ -41,7 +45,8 @@ app.get('/:pathName', (req, res) => {
           console.log('Beer from database:', responseFromAPI);
           res.render('random-beer', {
             randomBeer: responseFromAPI[0],
-            activeRandomBeers: true
+            activeRandomBeers: true,
+            pageTitle: 'Random Beer'
           });
         })
         .catch(error => console.log(error));
@@ -55,7 +60,10 @@ app.get('/beers/:beerId', (req, res) => {
     .getBeers()
     .then(beersFromApi => {
       console.log('Beers from the database: ', beersFromApi);
-      res.render('random-beer', beersFromApi[beerId - 1]);
+      res.render('random-beer', {
+        randomBeer: beersFromApi[beerId - 1],
+        pageTitle: beersFromApi[beerId - 1].name
+      });
     })
     .catch(error => console.log(error));
 });

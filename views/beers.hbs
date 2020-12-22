@@ -1,6 +1,12 @@
-<h1>Beers</h1>
-{{#each beersFromApi}}
-  <article class="beers">
-    {{>beer}}
-  </article>
-{{/each}}
+<section class="ib-catalog">
+  <h2 class="ib-catalog__headline sr-only">
+    Beers
+  </h2>
+  <ul class="ib-catalog__list ib-catalog-list">
+    {{#each beersFromApi}}
+      <li class="ib-catalog-list__entry">
+        {{>beer}}
+      </li>
+    {{/each}}
+  </ul>
+</section>

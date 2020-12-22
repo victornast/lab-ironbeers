@@ -1,0 +1,22 @@
+<header class="ib-header">
+  <h1 class="sr-only">Ironbeers</h1>
+  <nav>
+    <ul class="ib-navigation">
+      <li class="ib-navigation__entry">
+        <a class="ib-navigation__link {{#if activeHome}}ib-navigation__link--active{{/if}}" href="/">
+          Home
+        </a>
+      </li>
+      <li class="ib-navigation__entry">
+        <a class="ib-navigation__link {{#if activeBeers}}ib-navigation__link--active{{/if}}" href="/beers">
+          Beers
+        </a>
+      </li>
+      <li class="ib-navigation__entry">
+        <a class="ib-navigation__link {{#if activeRandomBeers}}ib-navigation__link--active{{/if}}" href="/random-beer">
+          Random Beer
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

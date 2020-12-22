@@ -1,4 +1,14 @@
-<h2>{{ name }}</h2>
-<a href="/beers/{{id}}"><img class="beer" src="{{ image_url }}" alt="{{name}}" height="300px"></a>
-<p>{{ description }}</p>
-<p>{{ tagline }}</p>
+<article class="ib-card">
+    <a class="ib-card__link" href="/beers/{{id}}">
+        <img class="ib-card__image" src="{{ image_url }}" alt="{{name}}" height="300px">
+        <h3 class="ib-card__name">
+            {{ name }}
+        </h3>
+        <p class="ib-card__tagline ib-product-tagline">
+            {{ tagline }}
+        </p>
+        <p class="ib-card__description">
+            {{ description }}
+        </p>
+    </a>
+</article>
